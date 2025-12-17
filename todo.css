@@ -13,6 +13,10 @@ body {
     align-items: center;
     min-height: 100vh;
     background-image: url(cool-sun.webp);
+    width: 100yw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
 }
 
 .container {
