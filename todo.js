@@ -17,16 +17,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const li = document.createElement('li');
-        li.textContent = taskText;
+        li.innerHTML = `
+        <input type="checkbox" class="checkbox">
+        <span>${taskText}</span>
+        `;
         taskList.appendChild(li);
+
+        // Add checkbox click event
+        const checkbox = li.querySelector('.checkbox');
+        checkbox.addEventListener('change', () => {
+            li.classList.toggle('checked');
+        });
 
         taskInput.value = '';
         toggleEmptyState();
     };
 
-    addTaskBtn = addEventListener('click', addTask);
+    addTaskBtn.addEventListener('click', addTask);
 
-    taskInput = addEventListener('keypress', (e) => {
+    taskInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
             addTask(e);
         }
@@ -34,5 +43,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     toggleEmptyState();
 
-} )
+});
 
